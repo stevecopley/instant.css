@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Open+Sans:wght@300;600&display=swap');
+/*** SETTINGS *****************************************************/
+
+:root {
+    --html-back-colour:   #06141C;
+    --body-back-colour:   #0d2738;
+    --header-back-colour: #091d2a;
+    --block-back-colour:  #284659;
+    --card-back-colour:   #3f627c;
+    --text-colour:        #f3f5f6;
+    --text-low-colour:    #ccc;
+    --accent1-colour:     #f5b73c;
+    --accent2-colour:     #84b5e5;
+    --shadow-colour:      #11111120;
+}
+
+/*** SANITY *****************************************************/
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*** NICENESS *****************************************************/
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*** RESET *****************************************************/
+
+/* Clear gaps between and within blocks */ 
+html, body,
+h1, h2, h3, h4, h5, h6, p,
+ol, ul, li, dl, dt, dd,
+blockquote, figure, fieldset, legend, textarea, pre {
+    margin: 0;
+    padding: 0;
+}
+
+/* Clear default list styling */
+ol, ul {
+  list-style: none;
+}
+
+/* Remove bold from heading */ 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* Stop images breaking out of containers */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove default spacing on tables */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td, th {
+    padding: 0;
+}
+
+/* Remove default spacing for form elements */
+button, input, select, textarea {
+    margin: 0;
+}
+
+/*** BACKGROUNDS *****************************************************/
+
+html    { background: var(--html-back-colour); color: var(--text-colour); }
+body    { background: var(--body-back-colour); }
+main    { background: var(--section-back-colour); }
+header  { background: var(--header-back-colour); }
+
+h2, h3, h4, h5, h6 { color: var(--accent2-colour); }
+
+
+/*** TEXT *****************************************************/
+
+body {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2.1rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.3rem; }
+h6 { font-size: 1.2rem; }
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0 0.5em;
+}
+
+h1, h2 { font-weight: 600; }
+
+p { 
+    line-height: 1.6;
+    margin: 1em 0; 
+}
+
+strong { font-weight: 600; }
+
+blockquote {
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--accent1-colour);
+}
+
+
+/*** GENERAL LAYOUT *****************************************************/
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    max-width: 100ch;
+    margin: auto;
+    padding: 1rem 1rem 2rem;
+    flex: 1;
+}
+
+header, footer {
+    padding: 1rem 0;
+}
+
+/*** MAIN HEADER *****************************************************/
+
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--line-colour);
+    box-shadow: 0 0 0.5rem var(--shadow-colour);
+}
+
+body > header h1 {
+    margin: 0;
+}
+
+/*** MAIN FOOTER *****************************************************/
+
+body > footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2rem 0;
+    /* border-top: 1px solid var(--line-colour); */
+}
+
+
+/*** ARTICLES *****************************************************/
+
+article:not(:first-child) {
+    margin-top: 2rem;
+}
+
+article:not(:first-child) header {
+    border-top: 1px solid var(--line-colour);
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+article header :is(h1, h2, h3, h4, h5, h6) {
+    margin: 0;
+}
+
+/*** MAIN NAV *****************************************************/
+
+body > header nav ul {
+    display: flex;
+    gap: 0.3rem;
+    list-style: none;
+    padding: 0;
+}
+
+body > header nav a {
+    display: block;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+    text-decoration: none;
+    color: var(--text-colour);
+    border-radius: 0.2rem;
+}
+
+body > header nav a:hover {
+    background: var(--accent-colour);
+    color: var(--page-colour);
+}
+
+/*** LINKS *****************************************************/
+
+a {
+    color: var(--accent-colour);
+}
+
+a:hover {
+    
+}
+
+/*** LISTS *****************************************************/
+
+ol, ul, dl {
+    padding-left: 1rem;
+}
+
+ul { list-style: circle; }
+ul ul { list-style: disc; font-size: 0.97em; }
+ul ul ul { list-style: square; }
+ul ul ul ul { list-style: circle; }
+
+ol { list-style: decimal; }
+ol ol { list-style: lower-alpha; font-size: 0.97em; }
+ol ol ol { list-style: lower-roman; }
+ol ol ol ol { list-style: decimal; }
+
+dd { 
+    padding-left: 2rem;
+    margin-bottom: 0.5rem; 
+}
+
+/*** TABLES *****************************************************/
+
+table {
+    margin: 1rem 0;
+}
+
+table caption {
+    padding: 0.5rem 0;
+}
+
+tbody tr:not(:last-child) {
+    border-bottom: 1px solid var(--line-colour);
+}
+
+th {
+    background: var(--accent-colour);
+    color: var(--page-colour);
+}
+
+td, th {
+    padding: 0.4rem 1rem;
+    text-align: left;
+    font-weight: inherit;
+}
+
+/*** CODE *****************************************************/
+
+code, pre, samp {
+    font-family: 'Fira Code', monospace;
+    font-weight: 400;
+}
+
+p code, code pre, samp, kbd {
+    background: var(--shadow-colour);
+}
+
+code pre {
+    padding: 0.5rem 1rem;
+    border-left: 3px solid var(--accent-colour);
+    width: max-content;
+}
+
+p code, samp {
+    padding: 0.1rem 0.3rem;
+}
+
+kbd {
+    font-family: inherit;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.2rem;
+    border: 1px solid var(--line-colour);
+}
+
+/*** FORMS *****************************************************/
+
+form {
+    padding: 1rem;
+    border: 1px solid var(--line-colour);
+    /* background: var(--shadow-colour); */
+    border-radius: 0.5rem;
+    width: max-content;
+    margin: 1rem auto;
+}
+
+fieldset {
+    padding: 0.7rem 1rem 1rem;
+    border: 1px solid var(--line-colour);
+    border-radius: 0.3rem;
+}
+
+fieldset:not(:first-child) {
+    margin-top: 1rem;
+}
+
+form div:last-child {
+    margin-bottom: -1rem;
+}
+
+label {
+    color: var(--accent-colour);
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.3rem;
+    vertical-align: text-bottom;
+}
+
+input + label,
+label + label {
+    margin-left: 1rem;
+}
+
+div label {
+    display: flex;
+    margin: 1rem 0 0.2rem;
+    font-size: 0.9rem;
+}
+
+div label + label {
+    margin: 0.3rem 0.2rem;
+    font-size: 1rem;
+}
+
+div label + label:last-child {
+    margin-bottom: 1rem;
+}
+
+div input:is([type=checkbox], [type=radio]) + label {
+    display: inline-block;
+    margin: 0;
+}
+
+:is(form, fieldset) > div:first-of-type > label {
+    margin-top: 0;
+}
+
+input, textarea, select, button {
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--line-colour);
+    border-radius: 0.3rem;
+    display: inline-block;
+}
+
+div > input:is([type=text], [type=email], [type=tel], [type=url], [type=password], [type=date]),
+div > textarea, 
+div > select {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+div > input:is([type=submit], [type=button], [type=reset]), 
+div > button {
+    margin-bottom: 1rem;
+}
+
+div input:is([type=text], [type=email], [type=tel], [type=url], [type=password]),
+div textarea {
+    min-width: 24rem;
+}
+
+input:is([type=checkbox], [type=radio]) {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.3rem;
+}
+
+
+input:is([type=submit], [type=button], [type=reset]), button {
+    color: var(--page-colour);
+    background: var(--accent-colour);
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--accent-colour);
+    display: inline-block;
+}
+
+div + input:is([type=submit], [type=button], [type=reset]), 
+div + button {
+    margin-top: 0.5rem
+}
+
+fieldset + input:is([type=submit], [type=button], [type=reset]), 
+fieldset + button {
+    margin-top: 1.5rem
+}
+
+
+:is(input, button, label) + input:is([type=submit], [type=button], [type=reset]), 
+:is(input, button, label) + button {
+    margin-left: 1rem;
+}
+
+input:is([type=submit], [type=button], [type=reset]):disabled,
+button:disabled {
+    background-color: var(--line-colour);
+    border-color: var(--line-colour);
+}
+
+
